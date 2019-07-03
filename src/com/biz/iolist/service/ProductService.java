@@ -97,22 +97,24 @@ public class ProductService {
 			System.out.printf("매입금액 입력 %d>>", vo.getP_iprice());
 			String strIprice = scan.nextLine();
 			int intIprice = 0;
-			if (strIprice.isEmpty())
+			if (strIprice.isEmpty()) {
 				intIprice = vo.getP_iprice();
-			else
+			}else {
 				intIprice = Integer.valueOf(strIprice);
+			}
 			System.out.printf("매출금액 입력 %d>>", vo.getP_oprice());
 			String strOprice = scan.nextLine();
 			int intOprice = 0;
-			if (strOprice.isEmpty())
+			if (strOprice.isEmpty()) {
 				intOprice = vo.getP_oprice();
-			else
-				intOprice = Integer.valueOf(intOprice);
-
+			}
+			else {
+				intOprice = Integer.valueOf(strOprice);
+			}
 			vo.setP_code(strPcode);
 			vo.setP_name(strName);
 			vo.setP_iprice(intIprice);
-			vo.setP_oprice(intIprice);
+			vo.setP_oprice(intOprice);
 
 			if (ProDao.update(vo) > 0) {
 				System.out.println("업데이트 성공");
